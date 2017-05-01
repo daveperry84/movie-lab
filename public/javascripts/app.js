@@ -52,7 +52,7 @@ movieApp.controller('movieController', function($scope, $http) {
 		var yearParam = !!$scope.currentYear ? '&y=' + $scope.currentYear : '';
 		var typeParam = !!$scope.currentType && $scope.currentType !== 'all' ? '&type=' + $scope.currentType : '';
 
-		$scope.url = 'http://www.omdbapi.com/?s=' + $scope.currentTitle + yearParam + typeParam;
+		$scope.url = 'https://www.omdbapi.com/?s=' + $scope.currentTitle + yearParam + typeParam;
 		$scope.currentPage = 1;
 		
 		$http.get($scope.url).then(function(data) {
@@ -72,7 +72,7 @@ movieApp.controller('movieController', function($scope, $http) {
 	};
 	
 	$scope.getMovieById = function(id) {
-		var url = 'http://www.omdbapi.com/?i=' + id;
+		var url = 'https://www.omdbapi.com/?i=' + id;
 		
 		$http.get(url).then(function(data) {
 			$scope.currMovie = data.data;
