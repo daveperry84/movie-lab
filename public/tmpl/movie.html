@@ -1,0 +1,98 @@
+<div class="panel panel-primary movie-panel" ng-show="currMovie">
+    <div class="panel-heading">
+        <strong>{{currMovie.Title}} ({{currMovie.Year}})</strong>
+        <div class="float-left" ng-class="{'movie-icon-white': currMovie.Type === 'movie', 'game-icon-white': currMovie.Type === 'game',
+						'tv-icon-white': currMovie.Type === 'series' || currMovie.Type === 'episode'}"></div>
+        <strong class="float-right">{{currMovie.Genre}}</strong>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-5">
+                <div class="movie-background">
+                    <img class="poster-image" ng-show="currMovie.Poster !== 'N/A'" data-ng-src="{{currMovie.Poster}}">
+                    <img class="poster-image" ng-show="currMovie.Poster === 'N/A'" src="../images/NoImage.jpg">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-7">
+                <table class="table table-striped table-condensed movie-table">
+                    <tbody>
+                        <tr>
+                            <td><strong>Director</strong></td>
+                            <td>{{currMovie.Director}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Runtime</strong></td>
+                            <td>{{currMovie.Runtime}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Production</strong></td>
+                            <td>{{currMovie.Production}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Released</strong></td>
+                            <td>{{currMovie.Released}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rating</strong></td>
+                            <td>{{currMovie.Rated}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Country</strong></td>
+                            <td>{{currMovie.Country}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Language</strong></td>
+                            <td>{{currMovie.Language}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>IMDB Rating</strong></td>
+                            <td>{{currMovie.imdbRating}} out of 10 ({{currMovie.imdbVotes}} votes)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Metascore</strong></td>
+                            <td>
+                                <div ng-show="currMovie.Metascore === 'N/A'">No score provided</div>
+                                <div ng-show="currMovie.Metascore !== 'N/A'" class="progress metascore-rating">
+                                  <div class="progress-bar-metascore" ng-class="{'progress-bar-success':currMovie.Metascore > 69,
+                                  'progress-bar-warning':currMovie.Metascore < 70 && currMovie.Metascore > 39,
+                                  'progress-bar-danger':currMovie.Metascore < 40}" role="progressbar"
+                                       aria-valuenow="{{currMovie.Metascore}}" aria-valuemin="0" aria-valuemax="100"
+                                       style="width: {{currMovie.Metascore}}%">
+                                      {{currMovie.Metascore}}/100
+                                    <span class="sr-only">{{currMovie.Metascore}}/100</span>
+                                  </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cast</strong></td>
+                            <td>{{currMovie.Actors}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Box Office</strong></td>
+                            <td>{{currMovie.BoxOffice}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Awards</strong></td>
+                            <td>{{currMovie.Awards}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Plot</strong></td>
+                            <td>{{currMovie.Plot}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Website</strong></td>
+                            <td>
+                                <a ng-show="!!currMovie.Website && currMovie.Website !== 'N/A'" href="{{currMovie.Website}}" target="_blank">{{currMovie.Website}}</a>
+                                <div ng-show="!currMovie.Website || currMovie.Website === 'N/A'">No website provided</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-primary float-right" type="submit" data-ng-click="back()">
+                    Back to Search >
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
