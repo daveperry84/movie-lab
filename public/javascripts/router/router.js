@@ -2,7 +2,7 @@ movieApp.config(function ($routeProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'tmpl/home.html',
-            controller: 'javascripts/movie-controller.js'
+            controller: 'movieController'
         }).when('/movie/:imdbId', {
             templateUrl: 'tmpl/movie.html',
             controller: 'movieDetailsController'
