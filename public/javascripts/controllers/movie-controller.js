@@ -1,4 +1,4 @@
-movieApp.controller('movieController', ['$scope', '$http', function($scope, $http) {
+movieApp.controller('movieController', ['$scope', '$http', 'MovieService' function($scope, $http, MovieService) {
     $scope.movies = [];
 	$scope.currMovie = null;
 	$scope.currentPage = 1;
@@ -74,10 +74,8 @@ movieApp.controller('movieController', ['$scope', '$http', function($scope, $htt
 	};
 	
 	$scope.getMovieById = function(id) {
-		var url = 'https://www.omdbapi.com/?i=' + id + '&apikey=' + apiKey;
-		
-		$http.get(url).then(function(data) {
-			$scope.currMovie = data.data;
+		MovieService.getMovieById(id).then(function(data) {
+			$scope.currMovie = data;
 		});
 	};
 	
