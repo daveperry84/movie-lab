@@ -1,4 +1,5 @@
-movieApp.service('MovieService', ['$http', function ($http) {
+angular.module('movieApp')
+    .service('MovieService', ['$http', function ($http) {
     var _priv = {
         apiKey: 'd005bb7a',
         getMovieById: function(id) {
