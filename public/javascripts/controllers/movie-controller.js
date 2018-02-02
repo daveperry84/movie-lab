@@ -1,4 +1,4 @@
-movieApp.controller('movieController', ['$scope', '$http', 'MovieService' function($scope, $http, MovieService) {
+movieApp.controller('movieController', ['$scope', '$http', 'MovieService', function($scope, $http, MovieService) {
     $scope.movies = [];
 	$scope.currMovie = null;
 	$scope.currentPage = 1;
