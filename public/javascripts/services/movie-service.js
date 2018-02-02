@@ -1,6 +1,6 @@
 movieApp.service('MovieService', function () {
     var _priv = {
-        apiKey: '',
+        apiKey: 'd005bb7a',
         getMovieById: function(id) {
             var url = 'https://www.omdbapi.com/?i=' + id + '&apikey=' + _priv.apiKey;
 
@@ -15,5 +15,4 @@ movieApp.service('MovieService', function () {
             return _priv.getMovieById(id);
         }
     }
-
 });
