@@ -1,4 +1,4 @@
-movieApp.service('MovieService', function () {
+movieApp.service('MovieService', ['$http', function ($http) {
     var _priv = {
         apiKey: 'd005bb7a',
         getMovieById: function(id) {
@@ -15,4 +15,4 @@ movieApp.service('MovieService', function () {
             return _priv.getMovieById(id);
         }
     }
-});
+}]);
