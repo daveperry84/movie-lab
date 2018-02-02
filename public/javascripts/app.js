@@ -1,4 +1,4 @@
-window.movieApp = angular.module('movieApp',['ngRoute']);
+window.movieApp = angular.module('movieApp',['ngRoute', 'MovieService']);
 
 movieApp.filter('capitalize', function() {
 	return function(s) {
