@@ -60,6 +60,12 @@ a {
     }
 }
 
+@media screen and (max-width: 991px) {
+    div.search-input {
+        margin-bottom: 10px;
+    }
+}
+
 #header-logo {
     background: url(../images/MovieLabWhite.png);
     height: 35px;

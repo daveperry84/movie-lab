@@ -10,6 +10,13 @@ movieApp.controller('movieSearchController', ['$scope', '$http', 'MovieService',
     $scope.titleInvalid = false;
     $scope.yearInvalid = false;
     $scope.invalidYearText = "Invalid input";
+	
+    var initialise = function() {	    
+	    if(sessionStorage.getItem('searchParams')) {
+		$scope.searchParams = JSON.parse(sessionStorage.getItem('searchParams')); 
+		searchMovies();
+	    } 
+    }
 
     $scope.validateFormAndSearch = function() {
         $scope.titleInvalid = !$scope.searchParams.currentTitle || $scope.searchParams.currentTitle === null || $scope.searchParams.currentTitle === "";
@@ -75,4 +82,6 @@ movieApp.controller('movieSearchController', ['$scope', '$http', 'MovieService',
 			$scope.lastItemNo = lastItem;
 		}
 	}
+	
+	initialise();
 }]);
