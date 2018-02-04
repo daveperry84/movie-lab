@@ -11,17 +11,17 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-4">
 					<label for="currentTitle">Title</label>
-					<input ng-class="{'input-invalid':titleInvalid}" ng-focus="titleInvalid = false" class="form-control" id="currentTitle" name="currentTitle" type="text" width="12" placeholder="e.g. Star Wars" data-ng-model="currentTitle" />
+					<input ng-class="{'input-invalid':titleInvalid}" ng-focus="titleInvalid = false" class="form-control" id="currentTitle" name="currentTitle" type="text" width="12" placeholder="e.g. Star Wars" data-ng-model="searchParams.currentTitle" />
 					<p class="input-invalid" ng-show="titleInvalid">Please enter a title</p>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
 					<label for="currentYear">Year</label>
-					<input ng-class="{'input-invalid':yearInvalid}" ng-focus="yearInvalid = false" class="form-control" id="currentYear" name="currentYear" type="text" placeholder="e.g. 2001" data-ng-model="currentYear" />
+					<input ng-class="{'input-invalid':yearInvalid}" ng-focus="yearInvalid = false" class="form-control" id="currentYear" name="currentYear" type="text" placeholder="e.g. 2001" data-ng-model="searchParams.currentYear" />
 					<p class="input-invalid" ng-show="yearInvalid">{{invalidYearText}}</p>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
 					<label for="currentType">Type</label>
-					<select class="form-control" id="currentType" name="currentType" data-ng-model="currentType">
+					<select class="form-control" id="currentType" name="currentType" data-ng-model="searchParams.currentType">
 					  <option value="all">All</option>
 					  <option value="movie">Movie</option>
 					  <option value="game">Game</option>
@@ -86,9 +86,9 @@
 			</table>
 		</div>
 		<div class="panel-footer paging-footer">
-			<input ng-disabled="currentPage === 1" id="prevPageBtn" class="btn btn-primary float-left inline-block" type="button" value="< Prev" data-ng-click="prevPage()" />
-			<strong class="page-text">Page {{currentPage}} of {{lastPage}}</strong>
-			<input ng-disabled="currentPage === lastPage" id="nextPageBtn" class="btn btn-primary float-right inline-block" type="button" value="Next >" data-ng-click="nextPage()" />
+			<input ng-disabled="searchParams.currentPage === 1" id="prevPageBtn" class="btn btn-primary float-left inline-block" type="button" value="< Prev" data-ng-click="prevPage()" />
+			<strong class="page-text">Page {{searchParams.currentPage}} of {{lastPage}}</strong>
+			<input ng-disabled="searchParams.currentPage === lastPage" id="nextPageBtn" class="btn btn-primary float-right inline-block" type="button" value="Next >" data-ng-click="nextPage()" />
 		</div>
 	</div>
 </div>

@@ -5,18 +5,17 @@
 		<script type="text/javascript" src="javascripts/lib/angular.min.js"></script>
 		<script type="text/javascript" src="javascripts/lib/angular-route.min.js"></script>
 		<script src="javascripts/app.js" type="text/javascript"></script>
-	    	<script src="javascripts/controllers/movie-controller.js" type="text/javascript"></script>
+	    	<script src="javascripts/services/movie-service.js" type="text/javascript"></script>
+	    	<script src="javascripts/controllers/movie-search-controller.js" type="text/javascript"></script>
 	    	<script src="javascripts/controllers/movie-details-controller.js" type="text/javascript"></script>
+	    	<script src="javascripts/directives/header-directive.js" type="text/javascript"></script>
 		<script type="text/javascript" src="javascripts/router/router.js"></script>
 		<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
 		<link rel="stylesheet" href="stylesheets/style.css">
     </head>
-    <body data-ng-controller="movieController">
+    <body>
 		<header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-			<a href="#">
-				<div class="navbar-left" id="header-logo"></div>
-			</a>
-			<p class="navbar-right" ng-bind="getTodaysDate()"></p>
+			<div header></div>
 		</header>
 		<!--<div id="logo-background">-->
 			<!--<div id="movie-lab-logo"></div>-->
