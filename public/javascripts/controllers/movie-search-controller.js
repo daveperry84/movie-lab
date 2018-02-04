@@ -14,7 +14,7 @@ movieApp.controller('movieSearchController', ['$scope', '$http', 'MovieService',
     var initialise = function() {	    
 	    if(sessionStorage.getItem('searchParams')) {
 		$scope.searchParams = JSON.parse(sessionStorage.getItem('searchParams')); 
-		$scope.validateFormAndSearch();
+		searchMovies();
 	    } 
     }
 
