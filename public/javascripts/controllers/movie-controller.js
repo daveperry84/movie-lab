@@ -61,12 +61,6 @@ movieApp.controller('movieController', ['$scope', '$http', 'MovieService', funct
 		});
 	};
 	
-	$scope.getMovieById = function(id) {
-		MovieService.getMovieById(id).then(function(data) {
-			$scope.currMovie = data;
-		});
-	};
-	
 	$scope.nextPage = function() {
 		$scope.searchParams.currentPage += 1;
 		
