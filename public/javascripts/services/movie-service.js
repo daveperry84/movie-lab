@@ -17,7 +17,7 @@ angular.module('movieApp')
             
             var yearParam = !!params.currentYear ? '&y=' + params.currentYear : '';
             var typeParam = !!params.currentType && params.currentType !== 'all' ? '&type=' + params.currentType : '';
-            var url = 'https://www.omdbapi.com/?s=' + params.currentTitle + yearParam + typeParam + '&apikey=' + _priv.apiKey;
+            var url = 'https://www.omdbapi.com/?s=' + params.currentTitle + yearParam + typeParam + '&page=' + params.currentPage.toString() + '&apikey=' + _priv.apiKey;
             
             $http.get(url).then(function(data) {
                 defer.resolve(data.data);
