@@ -20,6 +20,7 @@ angular.module('movieApp')
             var url = 'https://www.omdbapi.com/?s=' + params.currentTitle + yearParam + typeParam + '&page=' + params.currentPage.toString() + '&apikey=' + _priv.apiKey;
             
             $http.get(url).then(function(data) {
+                sessionStorage.setItem('searchParams', JSON.stringify(params));
                 defer.resolve(data.data);
             });
             
