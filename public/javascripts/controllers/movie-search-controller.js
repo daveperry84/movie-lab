@@ -10,6 +10,11 @@ movieApp.controller('movieSearchController', ['$scope', '$http', 'MovieService',
     $scope.titleInvalid = false;
     $scope.yearInvalid = false;
     $scope.invalidYearText = "Invalid input";
+	
+    if(sessionStorage.getItem('searchParams')) {
+        $scope.searchParams = JSON.parse(sessionStorage.getItem('searchParams')); 
+	$scope.validateFormAndSearch();
+    }    
 
     $scope.validateFormAndSearch = function() {
         $scope.titleInvalid = !$scope.searchParams.currentTitle || $scope.searchParams.currentTitle === null || $scope.searchParams.currentTitle === "";
