@@ -4,7 +4,7 @@ movieApp.directive('footer', function() {
         restrict: 'A',
         scope: {},
         controller: function($scope) {
-          $scope.linkedInUrl = '';
+          $scope.linkedInUrl = "https://www.linkedin.com/in/dp-developer-320a6283/";
           $scope.name = 'Dave Perry'
         }
     };
