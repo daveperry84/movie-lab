@@ -1,26 +1,17 @@
 movieApp.controller('movieController', ['$scope', '$http', 'MovieService', function($scope, $http, MovieService) {
     $scope.movies = [];
     $scope.currMovie = null;
-	$scope.currentPage = 1;
-	$scope.lastPage = null;
-	$scope.searchParams = {
-		currentPage: 1
-	};
-    $scope.currentTitle = '';
-    $scope.currentYear = '';
-    $scope.currentType = 'all';
-    $scope.url = '';
+    $scope.lastPage = null;
+    $scope.searchParams = {};
     $scope.noOfResults = 0;
-	$scope.firstItemNo = null;
-	$scope.lastItemNo = null;
-	$scope.zeroResults = false;
-	$scope.titleInvalid = false;
-	$scope.yearInvalid = false;
-	$scope.invalidYearText = "Invalid input";
-	
-	var apiKey = "d005bb7a";
+    $scope.firstItemNo = null;
+    $scope.lastItemNo = null;
+    $scope.zeroResults = false;
+    $scope.titleInvalid = false;
+    $scope.yearInvalid = false;
+    $scope.invalidYearText = "Invalid input";
 
-	$scope.getTodaysDate = function () {
+    $scope.getTodaysDate = function () {
         var today = new Date();
         var date = today.getDate().toString();
 
@@ -48,6 +39,7 @@ movieApp.controller('movieController', ['$scope', '$http', 'MovieService', funct
         }
 
         if(!$scope.titleInvalid && !$scope.yearInvalid) {
+	    $scope.searchParams.currentPage = 1;
             searchMovies();
         }
     }
@@ -77,27 +69,25 @@ movieApp.controller('movieController', ['$scope', '$http', 'MovieService', funct
 	
 	$scope.nextPage = function() {
 		$scope.searchParams.currentPage += 1;
-		var url = $scope.url + '&page=' + $scope.currentPage.toString() + '&apikey=' + apiKey;
 		
-		$http.get(url).then(function(data) {
-			$scope.movies = data.data.Search;
-			getItemNumbers($scope.currentPage, $scope.noOfResults);
+		MovieService.searchMovies($scope.searchParams).then(function(data) {
+			$scope.movies = data.Search;
+			getItemNumbers($scope.searchParams.currentPage, $scope.noOfResults);
 		});
 	};
 	
 	$scope.prevPage = function() {
-		$scope.currentPage -= 1;
-		var url = $scope.url + '&page=' + $scope.currentPage.toString() + '&apikey=' + apiKey;
+		$scope.searchParams.currentPage -= 1;
 		
-		$http.get(url).then(function(data) {
-			$scope.movies = data.data.Search;
-			getItemNumbers($scope.currentPage, $scope.noOfResults);
+		MovieService.searchMovies($scope.searchParams).then(function(data) {
+			$scope.movies = data.Search;
+			getItemNumbers($scope.searchParams.currentPage, $scope.noOfResults);
 		});
 	};
 	
 	$scope.back = function () {
 		window.history.back();
-    };
+    	};
 
 	var getItemNumbers = function(page, totalResults) {
 		$scope.firstItemNo = ((page - 1) * 10) + 1;
