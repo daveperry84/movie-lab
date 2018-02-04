@@ -78,10 +78,6 @@ movieApp.controller('movieController', ['$scope', '$http', 'MovieService', funct
 			getItemNumbers($scope.searchParams.currentPage, $scope.noOfResults);
 		});
 	};
-	
-	$scope.back = function () {
-		window.history.back();
-    	};
 
 	var getItemNumbers = function(page, totalResults) {
 		$scope.firstItemNo = ((page - 1) * 10) + 1;
