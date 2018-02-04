@@ -11,12 +11,28 @@ angular.module('movieApp')
             });
             
             return defer.promise;
+        },
+        searchMovies: function(params) {
+            var defer = $q.defer();
+            
+            var yearParam = !!params.currentYear ? '&y=' + params.currentYear : '';
+            var typeParam = !!params.currentType && params.currentType !== 'all' ? '&type=' + params.currentType : '';
+            var url = 'https://www.omdbapi.com/?s=' + params.currentTitle + yearParam + typeParam + '&apikey=' + _priv.apiKey;
+            
+            $http.get(url).then(function(data) {
+                defer.resolve(data.data);
+            });
+            
+            return defer.promise;
         }
     }
     
     return {
         getMovieById: function(id) {
             return _priv.getMovieById(id);
+        },
+        searchMovies: function(params) {
+            return _priv.searchMovies(params);
         }
     }
 }]);
