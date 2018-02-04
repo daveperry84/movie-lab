@@ -1,8 +1,11 @@
 movieApp.controller('movieController', ['$scope', '$http', 'MovieService', function($scope, $http, MovieService) {
     $scope.movies = [];
-	$scope.currMovie = null;
+    $scope.currMovie = null;
 	$scope.currentPage = 1;
 	$scope.lastPage = null;
+	$scope.searchParams = {
+		currentPage: 1
+	};
     $scope.currentTitle = '';
     $scope.currentYear = '';
     $scope.currentType = 'all';
@@ -32,16 +35,16 @@ movieApp.controller('movieController', ['$scope', '$http', 'MovieService', funct
     };
 
     $scope.validateFormAndSearch = function() {
-        $scope.titleInvalid = !$scope.currentTitle || $scope.currentTitle === null || $scope.currentTitle === "";
+        $scope.titleInvalid = !$scope.searchParams.currentTitle || $scope.searchParams.currentTitle === null || $scope.searchParams.currentTitle === "";
 
-        if(!isNaN(parseInt($scope.currentYear))) {
+        if(!isNaN(parseInt($scope.searchParams.currentYear))) {
             var today = new Date();
             var thisYear = today.getFullYear();
 
-            $scope.yearInvalid = parseInt($scope.currentYear) < 1890 || parseInt($scope.currentYear) > thisYear+1;
+            $scope.yearInvalid = parseInt($scope.searchParams.currentYear) < 1890 || parseInt($scope.searchParams.currentYear) > thisYear+1;
             $scope.invalidYearText = "Must be in range 1890-" + thisYear;
         } else {
-            $scope.yearInvalid = $scope.currentYear && $scope.currentYear !== null && $scope.currentYear !== "";;
+            $scope.yearInvalid = $scope.searchParams.currentYear && $scope.searchParams.currentYear !== null && $scope.searchParams.currentYear !== "";;
         }
 
         if(!$scope.titleInvalid && !$scope.yearInvalid) {
@@ -49,24 +52,17 @@ movieApp.controller('movieController', ['$scope', '$http', 'MovieService', funct
         }
     }
 	
-	var searchMovies = function() {
-		var yearParam = !!$scope.currentYear ? '&y=' + $scope.currentYear : '';
-		var typeParam = !!$scope.currentType && $scope.currentType !== 'all' ? '&type=' + $scope.currentType : '';
-
-		$scope.url = 'https://www.omdbapi.com/?s=' + $scope.currentTitle + yearParam + typeParam;
-		$scope.urlWithKey = $scope.url + '&apikey=' + apiKey;
-		$scope.currentPage = 1;
-		
-		$http.get($scope.urlWithKey).then(function(data) {
-			if(!!data.data.Search) {
-				$scope.movies = data.data.Search;
+	var searchMovies = function() {		
+		MovieService.searchMovies($scope.searchParams).then(function(data) {
+			if(!!data.Search) {
+				$scope.movies = data.Search;
 			}
 
 			if($scope.movies.length > 0) {
 				$scope.zeroResults = false;
-				$scope.noOfResults = data.data.totalResults;
+				$scope.noOfResults = data.totalResults;
 				$scope.lastPage = Math.ceil($scope.noOfResults/10);
-				getItemNumbers($scope.currentPage, $scope.noOfResults);
+				getItemNumbers($scope.searchParams.currentPage, $scope.noOfResults);
 			} else {
 				$scope.zeroResults = true;
 			}
@@ -80,7 +76,7 @@ movieApp.controller('movieController', ['$scope', '$http', 'MovieService', funct
 	};
 	
 	$scope.nextPage = function() {
-		$scope.currentPage += 1;
+		$scope.searchParams.currentPage += 1;
 		var url = $scope.url + '&page=' + $scope.currentPage.toString() + '&apikey=' + apiKey;
 		
 		$http.get(url).then(function(data) {
