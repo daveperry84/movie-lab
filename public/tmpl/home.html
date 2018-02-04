@@ -9,17 +9,17 @@
 		</div>
 		<div class="panel-body">
 			<div class="row">
-				<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="col-xs-12 col-sm-6 col-md-4 search-input">
 					<label for="currentTitle">Title</label>
 					<input ng-class="{'input-invalid':titleInvalid}" ng-focus="titleInvalid = false" class="form-control" id="currentTitle" name="currentTitle" type="text" width="12" placeholder="e.g. Star Wars" data-ng-model="searchParams.currentTitle" />
 					<p class="input-invalid" ng-show="titleInvalid">Please enter a title</p>
 				</div>
-				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
+				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-2 search-input">
 					<label for="currentYear">Year</label>
 					<input ng-class="{'input-invalid':yearInvalid}" ng-focus="yearInvalid = false" class="form-control" id="currentYear" name="currentYear" type="text" placeholder="e.g. 2001" data-ng-model="searchParams.currentYear" />
 					<p class="input-invalid" ng-show="yearInvalid">{{invalidYearText}}</p>
 				</div>
-				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
+				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-2 search-input">
 					<label for="currentType">Type</label>
 					<select class="form-control" id="currentType" name="currentType" data-ng-model="searchParams.currentType">
 					  <option value="all">All</option>
