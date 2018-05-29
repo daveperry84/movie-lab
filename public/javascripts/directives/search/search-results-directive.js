@@ -1,6 +1,6 @@
 movieApp.directive('searchResults', function() {
     return {
-        templateUrl: 'javascripts/directives/search-results-directive.html',
+        templateUrl: 'javascripts/directives/search/search-results-directive.html',
         restrict: 'E',
         scope: {
             searchParams: '=',
