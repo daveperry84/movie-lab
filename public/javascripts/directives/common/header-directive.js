@@ -1,6 +1,6 @@
 movieApp.directive('header', function() {
     return {
-        templateUrl: 'javascripts/directives/header-directive.html',
+        templateUrl: 'javascripts/directives/common/header-directive.html',
         restrict: 'A',
         scope: {},
         controller: function($scope) {
