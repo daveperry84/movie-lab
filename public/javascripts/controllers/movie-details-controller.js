@@ -2,8 +2,4 @@ movieApp.controller("movieDetailsController", ['$scope', '$routeParams', 'MovieS
     MovieService.getMovieById($routeParams.imdbId).then(function(data) {
         $scope.currMovie = data;
     });
-    
-    $scope.back = function () {
-		window.history.back();
-    };
 }]);
