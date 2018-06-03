@@ -1,6 +1,6 @@
 movieApp.directive('footer', function() {
     return {
-        templateUrl: 'javascripts/directives/footer-directive.html',
+        templateUrl: 'javascripts/directives/common/footer-directive.html',
         restrict: 'A',
         scope: {},
         controller: function($scope) {

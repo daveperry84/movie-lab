@@ -1,6 +1,6 @@
 movieApp.directive('searchBar', function() {
     return {
-        templateUrl: 'javascripts/directives/search-bar-directive.html',
+        templateUrl: 'javascripts/directives/search/search-bar-directive.html',
         restrict: 'E',
         scope: {
             searchParams: '='
