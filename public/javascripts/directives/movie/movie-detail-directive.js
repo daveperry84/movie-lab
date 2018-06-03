@@ -6,7 +6,9 @@ movieApp.directive('movieDetail', function() {
             movie: '='
         },
         controller: function($scope) {
-            
+            $scope.back = function () {
+		        window.history.back();
+            };
         }
     };
 });
