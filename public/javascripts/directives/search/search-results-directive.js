@@ -7,7 +7,7 @@ movieApp.directive('searchResults', function() {
             movies: '=',
             results: '='
         },
-        controller: function($scope) {
+        controller: function($scope, WatchlistService) {
             $scope.nextPage = function() {
                 $scope.$emit('changePage', {direction:1});
             };
@@ -15,6 +15,12 @@ movieApp.directive('searchResults', function() {
             $scope.prevPage = function() {
                 $scope.$emit('changePage', {direction:-1});
             };
+
+            $scope.toggleWatchlist = function(movie) {
+                WatchlistService.toggleWatchlist(movie.imdbID).then(function() {
+                    movie.onWatchlist = !movie.onWatchlist;
+                })                
+            }
         }
     };
 });

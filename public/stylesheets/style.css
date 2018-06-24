@@ -85,8 +85,8 @@ a {
     background-repeat: no-repeat;
 }
 
-.movie-icon-white {
-    background: url(../images/icon-movie-white.png);
+.movie-icon-small {
+    background: url(../images/icon-movie.png);
     height: 25px;
     width: 25px;
     margin-top: -4px;
@@ -104,8 +104,8 @@ a {
     background-repeat: no-repeat;
 }
 
-.game-icon-white {
-    background: url(../images/icon-game-white.png);
+.game-icon-small {
+    background: url(../images/icon-game.png);
     height: 25px;
     width: 25px;
     margin-top: -4px;
@@ -123,8 +123,8 @@ a {
     background-repeat: no-repeat;
 }
 
-.tv-icon-white {
-    background: url(../images/icon-tv-white.png);
+.tv-icon-small {
+    background: url(../images/icon-tv.png);
     height: 25px;
     width: 25px;
     margin-top: -4px;
@@ -247,4 +247,108 @@ p.input-invalid {
 
 #nextPageBtn {
     margin-top: -16px;
+}
+
+.table-watchlist-header {
+    float: right;
+}
+
+.watchlist-icon {
+    color: rgb(5,42,69);
+    font-size: 2em;
+    float: right;
+    padding-right:40px;
+}
+
+.watchlist-icon-small {
+    color: rgb(5,42,69);
+    font-size: 1.5em;
+    float: right;
+    padding-left:10px;
+    margin-top: -3px;
+}
+
+.watchlist-panels {
+    display: flex; 
+    flex-direction: row; 
+    flex-wrap:wrap; 
+    margin-top:15px;
+    margin-left:15px;
+}
+
+.watchlist-detail {
+    position:relative; 
+    height:370px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    background: rgb(5,42,69); 
+    margin: 0 15px 15px 0; 
+    border-radius:5px;
+}
+
+.watchlist-header {
+    height:65px; 
+    background: rgb(5,42,69); 
+    border-radius: 5px; 
+    margin-top:15px;
+}
+
+.watchlist-header h4 {
+    color:lightgrey; 
+    float: left; 
+    font-size:25px; 
+    font-weight:600; 
+    margin:18px;
+}
+
+.watchlist-random-btn {
+    margin:15px;
+    float: right;
+}
+
+.watchlist-random-btn .glyphicon {
+    font-size: 0.8em; 
+    margin-right: 5px;
+}
+
+.watchlist-poster {
+    padding: 10px;
+    width: 210px; 
+    height: 325px;
+}
+
+.watchlist-label {
+    margin: 0 5px 15px 5px; 
+    position:absolute; 
+    bottom:0; 
+    color:lightgrey;
+}
+
+.watchlist-modal-content {
+    background:rgb(5,42,69);
+}
+
+.watchlist-modal-title {
+    color: lightgrey; 
+    font-size: 20px; 
+    font-weight: 600;
+}
+
+.watchlist-modal-close {
+    color: lightgrey; 
+    opacity: 0.7; 
+    position: absolute; 
+    top: 13px; 
+    right: 13px;
+}
+
+.watchlist-modal-body {
+    display: flex; 
+    justify-content: flex-start; 
+    align-items: center;
+}
+
+.wl-movie-details {
+    color:lightgrey;
 }

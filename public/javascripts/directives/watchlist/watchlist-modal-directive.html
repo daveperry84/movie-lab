@@ -1,0 +1,34 @@
+<div class="modal fade" id="randomMovieModal" tabindex="-1" role="dialog" aria-labelledby="randomMovieLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content watchlist-modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title watchlist-modal-title" id="randomMovieLabel">Let's watch...{{movie.Title}}</h5>
+                <button type="button" class="close watchlist-modal-close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body watchlist-modal-body">
+                <div class="wl-movie-poster">
+                    <img class="watchlist-poster" ng-show="movie.Poster !== 'N/A'" data-ng-src="{{movie.Poster}}">
+                    <img class="watchlist-poster" ng-show="movie.Poster === 'N/A'" src="../images/NoImage.jpg">
+                </div>
+                <div class="wl-movie-details">
+                    <span><strong>Year: </strong>{{movie.Year}}</span></br>
+                    <span><strong>Director: </strong>{{movie.Director}}</span></br>
+                    <span><strong>Runtime: </strong>{{movie.Runtime}}</span></br>
+                    <span><strong>Rating: </strong>{{movie.Rated}}</span></br>
+                    <span><strong>Country: </strong>{{movie.Country}}</span></br>
+                    <span><strong>Language: </strong>{{movie.Language}}</span></br>
+                    <span><strong>IMDB Rating: </strong>{{movie.imdbRating}} out of 10 ({{movie.imdbVotes}} votes)</span></br>
+                    <span><strong>Cast: </strong>{{movie.Actors}}</span></br>
+                    <span><strong>Awards: </strong>{{movie.Awards}}</span></br>
+                    <span><strong>Plot: </strong>{{movie.Plot}}</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-ng-click="chooseRandomMovie()">Different Movie</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
