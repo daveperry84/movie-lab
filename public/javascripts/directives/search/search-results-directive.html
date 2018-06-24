@@ -25,6 +25,9 @@
                 <td>
                     <strong>Year</strong>
                 </td>
+                <td>
+                    <strong class="table-watchlist-header">Add to Watchlist</strong>
+                </td>
                 <td>&nbsp;</td>
             </tr>
             </thead>
@@ -36,6 +39,12 @@
                 </td>
                 <td>{{item.Title}}</td>
                 <td>{{item.Year}}</td>
+                <td>
+                    <div class="watchlist-icon" ng-click="toggleWatchlist(item)">
+                            <span ng-if="!item.onWatchlist" class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                            <span ng-if="item.onWatchlist" class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    </div>
+                </td>
                 <td>
                     <a href="#!/movie/{{item.imdbID}}" class="btn btn-default" style="float:right;">
                         <span class="glyphicon glyphicon-eye-open view-icon" aria-hidden="true"></span> View

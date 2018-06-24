@@ -1,0 +1,15 @@
+<div class="watchlist-header">
+    <h4>Watchlist</h4>
+    <button type="button" class="btn btn-primary watchlist-random-btn" data-ng-click="chooseRandomThenOpenModal()">
+        <span class="glyphicon glyphicon-random" aria-hidden="true"></span> Random Movie
+    </button>
+</div>
+<div class="watchlist-panels">
+    <a class="watchlist-detail" href="#!/movie/{{movie.imdbID}}" ng-repeat="movie in watchlist">
+        <img class="watchlist-poster" ng-show="movie.Poster !== 'N/A'" data-ng-src="{{movie.Poster}}">
+        <img class="watchlist-poster" ng-show="movie.Poster === 'N/A'" src="../images/NoImage.jpg">
+        <div class="watchlist-label">
+            <strong>{{movie.Title}}</strong>
+        </div>
+    </a>
+</div>

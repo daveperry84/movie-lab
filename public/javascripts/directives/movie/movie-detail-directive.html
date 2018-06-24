@@ -1,7 +1,11 @@
 <div class="panel-heading">
     <strong>{{movie.Title}} ({{movie.Year}})</strong>
-    <div class="float-left" ng-class="{'movie-icon-white': movie.Type === 'movie', 'game-icon-white': movie.Type === 'game',
-                    'tv-icon-white': movie.Type === 'series' || movie.Type === 'episode'}"></div>
+    <div class="float-left" ng-class="{'movie-icon-small': movie.Type === 'movie', 'game-icon-small': movie.Type === 'game',
+                    'tv-icon-small': movie.Type === 'series' || movie.Type === 'episode'}"></div>
+    <div class="watchlist-icon-small" ng-click="toggleWatchlist()">
+            <span ng-if="!movie.onWatchlist" class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+            <span ng-if="movie.onWatchlist" class="glyphicon glyphicon-star" aria-hidden="true"></span>
+    </div>
     <strong class="float-right">{{movie.Genre}}</strong>
 </div>
 <div class="panel-body">

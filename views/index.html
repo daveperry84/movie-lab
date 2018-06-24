@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html data-ng-app="movieApp">
     <head>
-        <title>The Movie Lab</title>
+		<title>The Movie Lab</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<script type="text/javascript" src="javascripts/lib/angular.min.js"></script>
 		<script type="text/javascript" src="javascripts/lib/angular-route.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="javascripts/app.js" type="text/javascript"></script>
 		<script src="javascripts/services/movie-service.js" type="text/javascript"></script>
+		<script src="javascripts/services/watchlist-service.js" type="text/javascript"></script>
 		<script src="javascripts/controllers/movie-search-controller.js" type="text/javascript"></script>
 		<script src="javascripts/controllers/movie-details-controller.js" type="text/javascript"></script>
+		<script src="javascripts/controllers/movie-watchlist-controller.js" type="text/javascript"></script>
 		<script src="javascripts/directives/common/header-directive.js" type="text/javascript"></script>
 		<script src="javascripts/directives/common/footer-directive.js" type="text/javascript"></script>
 		<script src="javascripts/directives/search/search-bar-directive.js" type="text/javascript"></script>
 		<script src="javascripts/directives/search/search-results-directive.js" type="text/javascript"></script>
 		<script src="javascripts/directives/movie/movie-detail-directive.js" type="text/javascript"></script>
+		<script src="javascripts/directives/watchlist/watchlist-results-directive.js" type="text/javascript"></script>
+		<script src="javascripts/directives/watchlist/watchlist-modal-directive.js" type="text/javascript"></script>
 		<script type="text/javascript" src="javascripts/router/router.js"></script>
 		<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
 		<link rel="stylesheet" href="stylesheets/style.css">

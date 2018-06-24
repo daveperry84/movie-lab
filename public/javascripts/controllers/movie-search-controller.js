@@ -1,4 +1,4 @@
-movieApp.controller('movieSearchController', ['$scope', '$http', 'MovieService', function($scope, $http, MovieService) {
+movieApp.controller('movieSearchController', ['$scope', '$http', 'MovieService', 'WatchlistService', function($scope, $http, MovieService, WatchlistService) {
     $scope.movies = [];
     $scope.searchParams = {};
     $scope.results = {
@@ -10,11 +10,15 @@ movieApp.controller('movieSearchController', ['$scope', '$http', 'MovieService',
 	lastPage: null
     }
 	
-    var initialise = function() {	    
-	    if(sessionStorage.getItem('searchParams')) {
-			$scope.searchParams = JSON.parse(sessionStorage.getItem('searchParams')); 
-			searchMovies();
-	    } 
+    var initialise = function() {
+		WatchlistService.getWatchlist().then(function(watchlist) {
+			$scope.watchlist = watchlist;
+
+			if(sessionStorage.getItem('searchParams')) {
+				$scope.searchParams = JSON.parse(sessionStorage.getItem('searchParams'));
+				searchMovies();
+			} 
+		})
     }
 	
 	var searchMovies = function(event) {
@@ -27,6 +31,10 @@ movieApp.controller('movieSearchController', ['$scope', '$http', 'MovieService',
 				$scope.results.lastPage = Math.ceil($scope.results.noOfResults/10);
 				$scope.results.currentPage = $scope.searchParams.currentPage;
 				getItemNumbers($scope.results.currentPage, $scope.results.noOfResults);
+
+				$scope.movies.forEach(function(movie) {
+					movie.onWatchlist = $scope.watchlist.indexOf(movie.imdbID) > -1;
+				})
 			} else {
 				$scope.results.zeroResults = true;
 			}
