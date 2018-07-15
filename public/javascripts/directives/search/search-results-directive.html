@@ -25,7 +25,7 @@
                 <td>
                     <strong>Year</strong>
                 </td>
-                <td>
+                <td class="hidden-xs">
                     <strong class="table-watchlist-header">Add to Watchlist</strong>
                 </td>
                 <td>&nbsp;</td>
@@ -39,7 +39,7 @@
                 </td>
                 <td>{{item.Title}}</td>
                 <td>{{item.Year}}</td>
-                <td>
+                <td class="hidden-xs">
                     <div class="watchlist-icon" ng-click="toggleWatchlist(item)">
                             <span ng-if="!item.onWatchlist" class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
                             <span ng-if="item.onWatchlist" class="glyphicon glyphicon-star" aria-hidden="true"></span>
