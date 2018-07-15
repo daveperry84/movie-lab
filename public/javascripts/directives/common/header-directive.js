@@ -4,6 +4,8 @@ movieApp.directive('header', function() {
         restrict: 'A',
         scope: {},
         controller: function($scope) {
+          $scope.showMenu = false;
+
           $scope.getTodaysDate = function () {
               var today = new Date();
               var date = today.getDate().toString();
@@ -17,6 +19,14 @@ movieApp.directive('header', function() {
 
               return day[today.getDay()] + ' ' + date + daySuffix + ' ' + month[today.getMonth()] + ' ' + today.getFullYear().toString();
           };
+
+          $scope.toggleNavMenu = function(event) {
+              if(event) {
+                event.preventDefault();
+              }  
+
+              $scope.showMenu = !$scope.showMenu;
+          }
         }
     };
 });

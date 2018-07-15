@@ -8,7 +8,7 @@ movieApp.directive('watchlistResults', function() {
         controller: function($scope) {
             $scope.chooseRandomThenOpenModal = function() {
                 $scope.$emit('chooseRandomThenOpenModal', {});
-            }
+            };
         }
     };
 });
