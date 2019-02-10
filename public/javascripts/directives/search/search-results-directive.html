@@ -1,19 +1,19 @@
-<div class="panel panel-primary" ng-show="results.zeroResults">
+<div class="panel home-panel" ng-show="results.zeroResults">
     <div class="panel-heading">
-        <strong>Search results</strong>
-        <strong class="float-right">0 results</strong>
+        <h3><strong>Search Results</strong></h3>
+        <h4 class="float-right">0 results</h4>
     </div>
     <div class="panel-body">
         <strong>Criteria provided has returned no results.</strong>
     </div>
 </div>
-<div class="panel panel-primary" ng-show="movies.length > 0 && !results.zeroResults">
+<div class="panel home-panel" ng-show="movies.length > 0 && !results.zeroResults">
     <div class="panel-heading">
-        <strong>Search results</strong>
-        <strong class="float-right">Showing {{results.firstItemNo}}-{{results.lastItemNo}} of {{results.noOfResults}} results</strong>
+        <h3><strong>Search Results</strong></h3>
+        <h4 class="float-right">Showing {{results.firstItemNo}}-{{results.lastItemNo}} of {{results.noOfResults}} results</h4>
     </div>
     <div class="panel-body">
-        <table class="table table-striped">
+        <table class="table">
             <thead>
             <tr>
                 <td>
