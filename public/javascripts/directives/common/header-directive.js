@@ -3,7 +3,7 @@ movieApp.directive('header', function() {
         templateUrl: 'javascripts/directives/common/header-directive.html',
         restrict: 'A',
         scope: {},
-        controller: function($scope) {
+        controller: function($scope, $location) {
           $scope.showMenu = false;
 
           $scope.getTodaysDate = function () {
@@ -27,6 +27,10 @@ movieApp.directive('header', function() {
 
               $scope.showMenu = !$scope.showMenu;
           }
+
+          $scope.hideLogo = function() {
+            return $location.path() =='/home';
+          } 
         }
     };
 });

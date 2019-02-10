@@ -1,6 +1,6 @@
 movieApp.config(function ($routeProvider) {
     $routeProvider
-        .when('/', {
+        .when('/home', {
             templateUrl: 'tmpl/home.html',
             controller: 'movieSearchController'
         }).when('/movie/:imdbId', {
@@ -10,6 +10,6 @@ movieApp.config(function ($routeProvider) {
             templateUrl: 'tmpl/watchlist.html',
             controller: 'movieWatchlistController'
         }).otherwise({
-            redirectTo: '/'
+            redirectTo: '/home'
         });
 });

@@ -1,7 +1,7 @@
 <a href="#" ng-click="toggleNavMenu($event)">
   <div class="navbar-left-menu glyphicon glyphicon-menu-hamburger"></div>
 </a>
-<a href="#">
+<a ng-hide="hideLogo()" href="#">
   <div class="navbar-left" id="header-logo"></div>
 </a>
 <p class="navbar-right hidden-xs" ng-bind="getTodaysDate()"></p>
